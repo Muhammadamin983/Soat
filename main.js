@@ -46,24 +46,25 @@ for (let i = 0; i < tabsItem.length ; i++) {
 }
 
 let btn = document.querySelector('.stopwatch__btn')
+let second = document.querySelector('.stopwatch__seconds')
+let minute = document.querySelector('.stopwatch__minutes')
+let hour = document.querySelector('.stopwatch__hours')
+let lamp = document.querySelector('.tabsLink__span')
 
-function sec() {
+btn.addEventListener('click', () => {
 
-    btn.addEventListener('click', () => {
-
-       if (btn.innerText == 'START') {
-        btn.innerText = 'STOP'
-       }
-       else if (btn.innerText == 'STOP'){
-        btn.innerText = 'CLEAR'
-       }
-       else{
-        btn.innerText = 'START'
-       }
-
-       
+        if (btn.innerText == 'START') {
+            second.innerText++
+            btn.innerText = 'STOP'
+            lamp.classList.add('active')
+        } else if (btn.innerText == 'STOP') {
+            btn.innerText = 'CLEAR'
+            lamp.classList.remove('active') 
+            lamp.classList.add('active_clear')
+        } else{
+            btn.innerText = 'START'
+            lamp.classList.remove('active_clear')
+        }
     })
 
-}
 
-sec()
