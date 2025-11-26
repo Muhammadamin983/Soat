@@ -44,3 +44,26 @@ for (let i = 0; i < tabsItem.length ; i++) {
         
     })    
 }
+
+let btn = document.querySelector('.stopwatch__btn')
+
+function sec() {
+
+    btn.addEventListener('click', () => {
+
+       if (btn.innerText == 'START') {
+        btn.innerText = 'STOP'
+       }
+       else if (btn.innerText == 'STOP'){
+        btn.innerText = 'CLEAR'
+       }
+       else{
+        btn.innerText = 'START'
+       }
+
+       
+    })
+
+}
+
+sec()
