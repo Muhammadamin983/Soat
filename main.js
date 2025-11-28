@@ -50,19 +50,44 @@ let second = document.querySelector('.stopwatch__seconds')
 let minute = document.querySelector('.stopwatch__minutes')
 let hour = document.querySelector('.stopwatch__hours')
 let lamp = document.querySelector('.tabsLink__span')
+let foo 
+
+function Sec() {
+    second.innerText++
+
+    foo = setTimeout(() => {
+        Sec()
+    }, 1000);
+
+    if (second.innerHTML > 59) {
+        second.innerHTML = 0
+        minute.innerHTML++
+    } else if (minute.innerHTML > 59) {
+        minute.innerHTML = 0
+        hour.innerHTML++
+    } else if (hour.innerHTML > 24){
+        hour.innerHTML = 0
+    }
+}
+
+
 
 btn.addEventListener('click', () => {
 
         if (btn.innerText == 'START') {
-            second.innerText++
+            Sec()
             btn.innerText = 'STOP'
             lamp.classList.add('active')
         } else if (btn.innerText == 'STOP') {
             btn.innerText = 'CLEAR'
             lamp.classList.remove('active') 
             lamp.classList.add('active_clear')
+            clearInterval(foo)
         } else{
             btn.innerText = 'START'
             lamp.classList.remove('active_clear')
+            second.innerHTML = 0
+            minute.innerHTML = 0
+            hour.innerHTML = 0
         }
     })
