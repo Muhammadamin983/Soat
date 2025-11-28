@@ -66,5 +66,3 @@ btn.addEventListener('click', () => {
             lamp.classList.remove('active_clear')
         }
     })
-
-
